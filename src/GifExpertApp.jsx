@@ -16,7 +16,7 @@ export const GifExpertApp = () =>
   {
     console.log(lNewCategory);
 
-    if(categories.includes(lNewCategory)) return;
+    if (categories.includes(lNewCategory)) return;
     setCategories([lNewCategory, ...categories]);
     // Otras formas de llamar la hook con el array u hacer el merge
     //   setCategories([...categories, lNewCategory]);
@@ -36,10 +36,18 @@ export const GifExpertApp = () =>
 
       {/* listado de gif */}
       <ol>
-        {categories.map(x =>
         {
-          return <li key={x}> {x}</li>
-        })}
+          categories.map(x =>
+          {
+            return (
+              <div key={x}>
+                <h3>{x}</h3>
+                <li> {x}</li>
+              </div>
+
+            )
+          })
+        }
       </ol>
 
       {/* Gif item */}
