@@ -3,6 +3,7 @@
 
 import { useState } from "react"
 import { AddCategory } from "./components/AddCategory";
+import { GifGrid } from "./components/GifGrid";
 
 
 export const GifExpertApp = () =>
@@ -26,27 +27,19 @@ export const GifExpertApp = () =>
 
     return (
         <>
-            {/* titulo */}
             <h1>GifExpert.. by ImSuperSir</h1>
 
-            {/*Input  */}
             <AddCategory
                 onNewCategory={(lNewCategory) => onAddCategory(lNewCategory)}
             />
 
-            {/* listado de gif */}
-            <ol>
-                {
-                    categories.map(x => (
-                        <div key={x}>
-                            <h3>{x}</h3>
-                            <li> {x}</li>
-                        </div>
-                    ))
-                }
-            </ol>
-
-            {/* Gif item */}
+            {
+                categories.map(x => (
+                    <GifGrid
+                        key={x}
+                        category={x} />
+                ))
+            }
         </>
     )
 }
