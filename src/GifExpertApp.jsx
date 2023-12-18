@@ -9,50 +9,46 @@ export const GifExpertApp = () =>
 {
 
 
-  const [categories, setCategories]
-    = useState([]);
+    const [categories, setCategories]
+        = useState([]);
 
-  const onAddCategory = (lNewCategory) =>
-  {
-    console.log(lNewCategory);
+    const onAddCategory = (lNewCategory) =>
+    {
+        console.log(lNewCategory);
 
-    if (categories.includes(lNewCategory)) return;
-    setCategories([lNewCategory, ...categories]);
-    // Otras formas de llamar la hook con el array u hacer el merge
-    //   setCategories([...categories, lNewCategory]);
-    //   setCategories( x => [...categories, lNewCategory]);
-    //   setCategories( x => [lNewCategory,...categories, lNewCategory]);
-  }
+        if (categories.includes(lNewCategory)) return;
+        setCategories([lNewCategory, ...categories]);
+        // Otras formas de llamar la hook con el array u hacer el merge
+        //   setCategories([...categories, lNewCategory]);
+        //   setCategories( x => [...categories, lNewCategory]);
+        //   setCategories( x => [lNewCategory,...categories, lNewCategory]);
+    }
 
-  return (
-    <>
-      {/* titulo */}
-      <h1>GifExpert.. by ImSuperSir</h1>
+    return (
+        <>
+            {/* titulo */}
+            <h1>GifExpert.. by ImSuperSir</h1>
 
-      {/*Input  */}
-      <AddCategory
-        onNewCategory={(lNewCategory) => onAddCategory(lNewCategory)}
-      />
+            {/*Input  */}
+            <AddCategory
+                onNewCategory={(lNewCategory) => onAddCategory(lNewCategory)}
+            />
 
-      {/* listado de gif */}
-      <ol>
-        {
-          categories.map(x =>
-          {
-            return (
-              <div key={x}>
-                <h3>{x}</h3>
-                <li> {x}</li>
-              </div>
+            {/* listado de gif */}
+            <ol>
+                {
+                    categories.map(x => (
+                        <div key={x}>
+                            <h3>{x}</h3>
+                            <li> {x}</li>
+                        </div>
+                    ))
+                }
+            </ol>
 
-            )
-          })
-        }
-      </ol>
-
-      {/* Gif item */}
-    </>
-  )
+            {/* Gif item */}
+        </>
+    )
 }
 
 // export default GifExpertApp
