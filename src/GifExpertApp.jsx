@@ -12,14 +12,16 @@ export const GifExpertApp = () =>
   const [categories, setCategories]
     = useState([]);
 
-  const onAddCategory = (event) =>
+  const onAddCategory = (lNewCategory) =>
   {
-    console.log(event);
-    setCategories([event, ...categories]);
+    console.log(lNewCategory);
+
+    if(categories.includes(lNewCategory)) return;
+    setCategories([lNewCategory, ...categories]);
     // Otras formas de llamar la hook con el array u hacer el merge
-    //   setCategories([...categories, event]);
-    //   setCategories( x => [...categories, event]);
-    //   setCategories( x => [event,...categories, event]);
+    //   setCategories([...categories, lNewCategory]);
+    //   setCategories( x => [...categories, lNewCategory]);
+    //   setCategories( x => [lNewCategory,...categories, lNewCategory]);
   }
 
   return (
@@ -29,7 +31,7 @@ export const GifExpertApp = () =>
 
       {/*Input  */}
       <AddCategory
-        onNewCategory={(event) => onAddCategory(event)}
+        onNewCategory={(lNewCategory) => onAddCategory(lNewCategory)}
       />
 
       {/* listado de gif */}
