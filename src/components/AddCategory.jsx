@@ -1,15 +1,6 @@
-// import React from 'react'
-
 import { useState } from "react"
 
-
-// En este caso : onNewCategory, es el nombre del prop
-// que se agrego el el compnente padre y que es la funcion 
-// para establecer el valor del useState de categorias
-{/* <AddCategory onNewCategory = { setCategories }/> */}
-// Tonces, esta function, recibe como argumento el estado previo "array actual"
-// tonces lo usamos en una funcion de flecha lo agregamos al nuevo array junto
-// con el nuevo valor que se agregara al array del estado, y la lista de la pagina
+//Ahora New Category, es una funcion del componente padre
 export const AddCategory = ( {onNewCategory} ) =>
 {
 
@@ -28,19 +19,12 @@ export const AddCategory = ( {onNewCategory} ) =>
     if(lNewCategory.length <= 1) return;
 
     onNewCategory(lNewCategory);
-    
-    //onNewCategory( (estadoPrevio) => [lNewCategory, ...estadoPrevio]);
-    //estado previo es el valor actual, bien pudiera escribirse como x => [inputValue, ...x]
     setInputValue(''); // cambiamos el estado del input (state), y por endel el textinput
   }
 
 
 
   return (
-    /*
-    
-    */
-
     <form onSubmit={ onSubmit}>
       {/* <form onSubmit={ (event) => onSubmit(event)}> */}
       <input type="text"

@@ -12,23 +12,14 @@ export const GifExpertApp = () =>
   const [categories, setCategories]
     = useState([]);
 
-  // const onAddCategory = (event) =>{
-  //   // setCategories([...categories, 'Nueva']);
-  //   setCategories( x => [...categories, 'Otra']);
-  //   setCategories( x => ['PrimeraPosi',...categories, 'Otra']);
-
-
-  //   //console.log('Otra');
-  // }
-
   const onAddCategory = (event) =>
   {
     console.log(event);
     setCategories([event, ...categories]);
-
-    //   setCategories([...categories, 'Nueva']);
-    //   setCategories( x => [...categories, 'Otra']);
-    //   setCategories( x => ['PrimeraPosi',...categories, 'Otra']);
+    // Otras formas de llamar la hook con el array u hacer el merge
+    //   setCategories([...categories, event]);
+    //   setCategories( x => [...categories, event]);
+    //   setCategories( x => [event,...categories, event]);
   }
 
   return (
@@ -38,11 +29,8 @@ export const GifExpertApp = () =>
 
       {/*Input  */}
       <AddCategory
-        //onAddCategory={setCategories}
         onNewCategory={(event) => onAddCategory(event)}
-      />  {/* se manda la referencia de la funcion "SetCategories" 
-                                                          que es la de UseState en este caso particular */}
-
+      />
 
       {/* listado de gif */}
       <ol>
