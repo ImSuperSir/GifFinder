@@ -3,14 +3,14 @@
 import { useState } from "react"
 
 
-// En este caso : onAddCategory, es el nombre del prop
+// En este caso : onNewCategory, es el nombre del prop
 // que se agrego el el compnente padre y que es la funcion 
 // para establecer el valor del useState de categorias
-{/* <AddCategory onAddCategory = { setCategories }/> */}
+{/* <AddCategory onNewCategory = { setCategories }/> */}
 // Tonces, esta function, recibe como argumento el estado previo "array actual"
 // tonces lo usamos en una funcion de flecha lo agregamos al nuevo array junto
 // con el nuevo valor que se agregara al array del estado, y la lista de la pagina
-export const AddCategory = ( {onAddCategory} ) =>
+export const AddCategory = ( {onNewCategory} ) =>
 {
 
   const [inputValue, setInputValue] = useState('');
@@ -23,9 +23,13 @@ export const AddCategory = ( {onAddCategory} ) =>
 
   const onSubmit = (event) => {
     event.preventDefault();  //prevent the webpage's postback
+    const lNewCategory = inputValue.trim();
 
-    if(inputValue.trim().length <= 1) return;
-    onAddCategory( (estadoPrevio) => [inputValue, ...estadoPrevio]);
+    if(lNewCategory.length <= 1) return;
+
+    onNewCategory(lNewCategory);
+    
+    //onNewCategory( (estadoPrevio) => [lNewCategory, ...estadoPrevio]);
     //estado previo es el valor actual, bien pudiera escribirse como x => [inputValue, ...x]
     setInputValue(''); // cambiamos el estado del input (state), y por endel el textinput
   }
