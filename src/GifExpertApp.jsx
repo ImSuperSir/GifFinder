@@ -15,7 +15,7 @@ export const GifExpertApp = () =>
 
     const onAddCategory = (lNewCategory) =>
     {
-        console.log(lNewCategory);
+       // console.log(lNewCategory);
 
         if (categories.includes(lNewCategory)) return;
         setCategories([lNewCategory, ...categories]);
