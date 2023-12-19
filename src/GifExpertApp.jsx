@@ -2,8 +2,7 @@
 //en la parte de vite.config, ya esta definido el import
 
 import { useState } from "react"
-import { AddCategory } from "./components/AddCategory";
-import { GifGrid } from "./components/GifGrid";
+import { AddCategory, GifGrid } from "./components";
 
 
 export const GifExpertApp = () =>
@@ -11,11 +10,11 @@ export const GifExpertApp = () =>
 
 
     const [categories, setCategories]
-        = useState(['Tulancingo']);
+        = useState(['Canada']);
 
     const onAddCategory = (lNewCategory) =>
     {
-       // console.log(lNewCategory);
+        // console.log(lNewCategory);
 
         if (categories.includes(lNewCategory)) return;
         setCategories([lNewCategory, ...categories]);
