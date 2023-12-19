@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getGifts } from "../helpers/getGifts.js";
+import { GifGridItem } from "./GifGridItem.jsx";
 
 export const GifGrid = ({ category }) =>
 {
@@ -23,29 +24,18 @@ export const GifGrid = ({ category }) =>
     return (
         <>
             <h3>{category}</h3>
-            <ol>
+            <div className="card-grid">
                 {
-                    //normal function
-                    // images.map(x =>
-                    // {
-                    //     return (
-                    //         <li key={x.id}>{x.title}</li>
-                    //     );
-                    // }
-                    // )
-
-                    //  we jusr return a line, so we can simplify
-                    // images.map(x => (
-                    //     <li key={x.id}>{x.title}</li>
-                    // ))
-                    
-                    /* using destructuring of the image parameter*/
-                    images.map( ({id, title}) => (
-                        <li key={id}>{title}</li>
+                    images.map( (x) => (
+                        // <li key={id}>{title}</li>
+                        <GifGridItem 
+                            key={ x.id}
+                            {...x}   //estamos lanzando todas las propiedades
+                        />
                     ))
                 }
 
-            </ol >
+            </div >
 
         </>
     )

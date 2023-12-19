@@ -11,7 +11,7 @@ export const GifExpertApp = () =>
 
 
     const [categories, setCategories]
-        = useState([]);
+        = useState(['Tulancingo']);
 
     const onAddCategory = (lNewCategory) =>
     {
